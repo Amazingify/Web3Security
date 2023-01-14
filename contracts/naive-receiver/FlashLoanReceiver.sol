@@ -17,6 +17,7 @@ contract FlashLoanReceiver {
         pool = poolAddress;
     }
 
+    // pool --calls-> receiveEther
     // Function called by the pool during flash loan
     function receiveEther(uint256 fee) public payable {
         require(msg.sender == pool, "Sender must be pool");
@@ -32,7 +33,9 @@ contract FlashLoanReceiver {
     }
 
     // Internal function where the funds received are used
-    function _executeActionDuringFlashLoan() internal { }
+    function _executeActionDuringFlashLoan() internal { 
+        
+    }
 
     // Allow deposits of ETH
     receive () external payable {}
